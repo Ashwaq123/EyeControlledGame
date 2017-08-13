@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -30,7 +30,7 @@ namespace Tarkizi1
  
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
+        private void pictureBox4_Click(object sender, EventArgs e) 
         {
             Form parentForm = (this.Parent as Form);
             parentForm.Controls.Clear();
@@ -39,17 +39,7 @@ namespace Tarkizi1
             parentForm.Controls.Add(UserList_Control);
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)  //If click end of the application
         {
             DialogResult myDialogResult = MessageBox.Show("هل أنت متأكد من أنك تريد إنهاء البرنامج؟", "إنهاء البرنامج", MessageBoxButtons.YesNo, MessageBoxIcon.Question,
         MessageBoxDefaultButton.Button1, MessageBoxOptions.RightAlign);
@@ -60,11 +50,11 @@ namespace Tarkizi1
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)   //If click add button
         {
             Form1 f1 = new Form1();
             bool empty = false;
-            if (string.IsNullOrWhiteSpace(this.textBox1.Text))
+            if (string.IsNullOrWhiteSpace(this.textBox1.Text))   //check the fields before adding
             {
                 MessageBox.Show("أدخل الاسم الأول من فضلك",
         "تنبيه",
@@ -132,7 +122,7 @@ namespace Tarkizi1
                     f1.rdr = cmdSel.ExecuteReader();
 
 
-                    if (!(f1.rdr.Read())) 
+                    if (!(f1.rdr.Read())) //if all data are ok, start to insert the user to the DB
                     {
                         string insertSQL = "INSERT INTO users(FName, LName, Age, PhoneNo, Address, Status, OtherDisorders, CID, sex) VALUES ('" + FirstName + "', '" + LastName + "', '" + textBox3.Text.ToString() + "', '" + textBox4.Text.ToString() + "', '" + textBox5.Text.ToString() + "','" + selectedStatus + "','" + selectedOthersDisorders + "','" + CID + "','" + sex + "')";
                     f1.objMySqlCon = new MySqlConnection(f1.cs);
@@ -183,7 +173,7 @@ namespace Tarkizi1
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) //If click cancel button
         {
             Form parentForm = (this.Parent as Form);
             parentForm.Controls.Clear();
@@ -198,7 +188,7 @@ namespace Tarkizi1
             radioButton1.Checked = true;
         }
 
-        private void label9_Click(object sender, EventArgs e)
+        private void label9_Click(object sender, EventArgs e)    //If click back to Main window
         {
             Form parentForm = (this.Parent as Form);
             parentForm.Controls.Clear();
@@ -207,10 +197,7 @@ namespace Tarkizi1
             parentForm.Controls.Add(UserList_Control);
         }
 
-        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
+         
 
     }
 }
